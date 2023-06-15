@@ -1,0 +1,465 @@
+GO 
+
+20m
+
+1. 
+
+A) WAP to accept user choice and print answers using arithmetic operators.
+OR
+B) WAP to accept n student details like roll_no, stud_name, mark1,mark2, mark3. Calculate the total and average of marks using structure.
+package main
+import "fmt"
+func main(){
+  var a,b,n int 
+  fmt.Print("Enter a value of a :")
+  fmt.Scanf("%d\n",&a)
+  fmt.Print("Enter a value of b :")  
+  fmt.Scanf("%d\n",&b)
+                fmt.Printf("1.Addtion\n2.Substriction\n3.Multiplication\n4.Divison\nEnter a case:")
+     
+    fmt.Scanf("%d",&n)	
+
+  switch (n){
+  case 1:
+  	fmt.Printf("%d + %d = %d\n",a,b,a+b)
+  case 2:
+  	fmt.Printf("%d - %d = %d\n",a,b,a-b)	 
+  case 3:
+  	fmt.Printf("%d * %d = %d\n",a,b,a*b)	
+  case 4:
+  	fmt.Printf("%d + %d = %d\n",a,b,a/b)
+  default :
+  	fmt.Println("Invalid case")		
+  } 
+}
+
+
+2.
+A) WAP to print Fibonacci series of n terms.
+package main
+import "fmt"
+func main(){
+  var n1,n2 int = 0,1
+  var n int
+  
+  fmt.Println("Enter the value of n")
+  fmt.Scanf("%d",&n)
+  fmt.Print(n1," ",n2)
+  for i:=3;i<=n;i++{
+    next := n1+n2
+    fmt.Print(" ",next)
+    n1=n2
+    n2=next
+  }
+}
+
+
+3. 
+A) Write a program in the GO language using function to check whether accepts number is palindrome or not.
+package main
+
+import("fmt")
+
+func isPalindrome(n int) bool {
+     temp := n
+     rev := 0
+     for temp > 0 {
+       rem := temp % 10
+       rev = rev*10 + rem
+       temp /= 10
+     }
+     return n == rev
+ }
+
+func main() {
+  var num int
+  fmt.Print("Enter a number:")
+  fmt.Scanf("%d",&num)
+  if isPalindrome(num) {
+      fmt.Printf("%d is a palindrome number",num)
+  }else {
+      fmt.Printf("%d is not a palindrome number",num)
+  }
+}
+
+
+
+4.
+A) WAP to print a recursive sum of digits of a given number.
+OR
+B) WAP to sort array elements in ascending order.
+package main
+
+import "fmt"
+
+func recurSum(n int) int{
+   if n==0 {
+         return 0
+   }
+   return n%10 + recurSum(n/10)
+ }
+
+func main() {
+   var num int
+   fmt.Print("Enter a number:")
+   fmt.Scanf("%d",&num)
+   sum := recurSum(num) 
+   fmt.Printf("Recursive sum of digits of %d is %d\n",num,sum)
+}
+
+
+5.
+A) WAP program to create Text file
+OR
+B) Write a program in GO language to accept n records of employee information (eno,ename,salary) and display records of employees having minimum salary.
+
+package main
+import ("fmt"
+        "os"
+       
+      )
+      func main(){
+        file,err:=os.create("myfile.txt")
+        if err!=nil{
+          fmt.Println(err)
+          return
+
+        }
+        defer file.Close()
+         str :="hello"
+         _,err = file.WriteString(str)
+         if err!=nil{
+          fmt.Println(err)
+          return
+         }
+         fmt.Println("File created successfully")
+      }
+
+6. 
+B) WAP to copy all elements of one array into another using a method.
+package main
+import "fmt"
+
+type Array []int
+
+func (a Array) copyTo (b Array){
+     for i,v := range a{
+     	b[i] = v
+     }	
+}
+
+func main(){
+	a:=Array{1,2,3,4,5}
+	b:=make(Array ,len(a))
+	a.copyTo(b)
+	fmt.Println("Array a :",a)
+	fmt.Println("Array b :",b)
+}
+
+
+7. 
+B) WAP to create structure student. Write a method show() whose receiver is a pointer of struct student.
+package main
+import "fmt"
+
+type student struct {
+	roll  int
+	name  string
+	marks float64
+}
+
+func show(s *student) {
+	fmt.Println("\nRoll No. : ", s.roll)
+	fmt.Println("Name : ", s.name)
+	fmt.Println("Marks : ", s.marks)
+}
+func main() {
+	var s student
+	s.roll = 13427
+	s.name = "Abhishek"
+	s.marks = 99.99
+	show(&s)
+}
+
+
+8. 
+A) WAP to accept the book details such as BookID, Title, Author, Price. Read and display the details of number of books
+OR
+B) WAP to create an interface shape that includes area and perimeter. Implements these methods in circle and rectangle type.
+
+package main
+import "fmt"
+
+type book struct {
+    bookID string
+    title string
+    author string
+    price int
+}
+
+func main(){
+    var n int
+    var b book
+
+    fmt.Print("Enter the number of books: ")
+    fmt.Scan(&n)
+
+    for i:=0;i<n;i++{
+        fmt.Printf("\nEnter the details of book %d:\n", i+1)
+
+        fmt.Print("BookID: ")
+        fmt.Scan(&b.bookID)
+
+        fmt.Print("Title: ")
+        fmt.Scan(&b.title)
+
+        fmt.Print("Author: ")
+        fmt.Scan(&b.author)
+
+        fmt.Print("Price: ")
+        fmt.Scan(&b.price)
+	
+	fmt.Printf("\nBook %d Details:\n", i+1)
+        fmt.Printf("BookID: %s\n", b.bookID)
+        fmt.Printf("Title: %s\n", b.title)
+        fmt.Printf("Author: %s\n", b.author)
+        fmt.Printf("Price: %d\n", b.price)
+        
+    }
+}    
+
+9. 
+A) WAP using a function to check whether the accepted number is palindrome or not.
+ Refer slip 3
+
+10.
+A) WAP to create an interface and display its values with the help of type assertion.
+
+//1. Write a program in go language to create an interface and display it’s values with the help of type assertion.
+
+package main
+
+import "fmt"
+
+func main() {
+	var i interface{} = 5.2
+
+	if v, result := i.(string); result {
+		fmt.Println("Value is : ", v, "\nIt is a String ")
+	} else if v, result := i.(int); result {
+		fmt.Println("Value is : ", v, "\nIt is a Integer ")
+	} else {
+		v := i.(float64)
+		fmt.Println("Value is : ", v, "\nIt is a Float")
+	}
+
+}
+
+// Assertion is use for remove ambiguity
+// It returns value and one boolean value, boolean value is use in if block. boolean value is true then execute if block.
+// and also it help to reduce run time error (panic) when program fetch value from interface
+
+11.
+A) WAP to check whether the accepted number is two digit or not.
+
+package main
+import "fmt"
+func main(){
+  var a int
+  fmt.Print("Enter a number to check :")
+  fmt.Scanf("%d",&a)
+  
+  if(a<10){
+    	fmt.Print("The given number is single digit\n")
+  }else{
+  	fmt.Print("The given number is not single digit\n") 
+  }  
+}
+
+12.
+A) WAP to swap two numbers using call by reference concept
+package main
+
+import "fmt"
+
+func swap(x*int,y*int) {
+  temp := *x
+  *x = *y
+  *y = temp
+}
+
+func main() {
+  fmt.Println("Call by reference")
+  var a,b int
+  fmt.Println("Enter two numbers:")
+  fmt.Scan(&a,&b)
+  fmt.Printf("Before swapping: a = %d,b = %d\n",a,b)
+  swap(&a,&b)
+  fmt.Printf("After swapping:a = %d,b = %d\n",a,b)
+}
+
+
+13.
+A) WAP to print sum of all even and odd numbers separately between 1 to 100.
+package main
+import "fmt"
+func main(){
+  var evensum,oddsum int
+  for i:=1;i<=100;i++{
+    if i%2==0{
+      evensum +=i
+    }else{
+      oddsum +=i
+    }
+  }
+  fmt.Printf("Sum of even numbers between 1 to 100:%d\n",evensum)
+    fmt.Printf("Sum of odd numbers between 1 to 100:%d\n",oddsum)
+
+}
+
+14.
+A) WAP to demonstrate working of slices (like append, remove, copy etc.)
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	arr2 := make([]int, len(arr))
+
+	fmt.Println("Slice : ", arr)
+
+	arr = append(arr, 10)
+	fmt.Println("\nAfter appending 10 in slice : ", arr)
+
+	// arr = append(arr[:len(arr)-1], arr[:len(arr)-2]...)
+	arr = arr[:len(arr)-1]
+	fmt.Println("\nAfter removing last element in slice : ", arr)
+
+	copy(arr2, arr)
+	fmt.Println("\nCopying one slice into another one :", arr2)
+}
+
+
+15.
+A) Write a program in GO language to demonstrate function return multiple values.
+package main
+import "fmt" 
+func myfunc(p,q int)(int,int,int){
+    return p-q , p*q , p+q
+}
+
+func main(){
+   var a,b int
+   fmt.Println("Enter two numbers")
+   fmt.Scan(&a,&b) 
+   var var1, var2, var3 = myfunc(a,b)
+
+   fmt.Printf("Substraction: %d",var1)
+   fmt.Printf("\nMultiplication: %d",var2)
+   fmt.Printf("\nAddition: %d\n",var3) 
+}
+
+
+16.
+A) WAP to create a user defined package to find out the area of a rectangle.
+package rectangle
+
+func Area(length,width float64)float64{
+	return length*width
+}
+
+
+17.
+A) WAP to illustrate the concept of returning multiple values from a function. ( Add, Subtract, Multiply, Divide)
+package main
+import "fmt" 
+func myfunc(p,q int)(int,int,int,int){
+    return p-q , p*q , p+q ,p/q
+}
+
+func main(){
+   var a,b int
+   fmt.Println("Enter two numbers")
+   fmt.Scan(&a,&b) 
+   var var1, var2, var3,var 4 = myfunc(a,b)
+
+   fmt.Printf("Substraction: %d",var1)
+   fmt.Printf("\nMultiplication: %d",var2)
+   fmt.Printf("\nAddition: %d\n",var3) 
+   fmt.printf("\nDivision:%d\n",var4
+}
+
+
+18.
+A) WAP to print a multiplication table of number using function.
+
+
+package main
+
+import "fmt"
+ fun mul(num int){
+  for i:=1;i<=10;i++{
+    fmt.Printf("%d x %d=%d\n",num,i,num*i)
+  }
+ }
+
+func main() {
+	var num int
+
+	fmt.Printf("Enter a Number : ")
+	fmt.Scanf("%d", &num)
+  mul(num)
+
+	}
+
+}
+
+19.
+A) Write a program in GO language to illustrate the function returning multiple values(add, subtract).
+
+package main
+import "fmt" 
+func myfunc(p,q int)(int,int){
+    return p-q , p+q
+}
+
+func main(){
+   var a,b int
+   fmt.Println("Enter two numbers")
+   fmt.Scan(&a,&b) 
+   var var1, var2 = myfunc(a,b)
+
+   fmt.Printf("Substraction: %d",var1)
+   
+   fmt.Printf("\nAddition: %d\n",var2) 
+}
+
+20.
+A) WAP to add or append content at the end of a text file.
+//3. WAP in Go language to add or append content at the end of a text file.
+
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	file, _ := os.OpenFile("demo.txt", os.O_APPEND|os.O_WRONLY, 777)
+
+	_, err2 := file.WriteString("Hii\n")
+
+	defer file.Close()
+	if err2 != nil {
+		fmt.Println("Error")
+
+	} else {
+		fmt.Println("Operation successful!")
+	}
+
+}

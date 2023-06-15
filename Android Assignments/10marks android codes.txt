@@ -1,0 +1,513 @@
+
+******   check numbers    *****
+
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText ed1, ed2;
+    TextView tv;
+    Button btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btn = findViewById(R.id.btn);
+        ed1 = findViewById(R.id.ed1);
+        ed2 = findViewById(R.id.ed2);
+        tv = findViewById(R.id.tv);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int n1 = Integer.parseInt(ed1.getText().toString());
+                int n2 = Integer.parseInt(ed2.getText().toString());
+                if(n1>10 && n2>10) {
+                    Toast.makeText(getApplicationContext(), "Num is > 10. Enter diff number", Toast.LENGTH_SHORT).show();
+                    ed1.setText("");
+                    ed2.setText("");
+                    tv.setText("");
+                    return;
+                }
+
+                tv.setText("num are "+ n1 +" and " +n2);
+            }
+        });
+
+    }
+
+}
+
+
+******   Hello Message    ***** 
+
+
+**MainActivity**
+
+package com.example.hellomsg;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+    EditText ed1;
+    Button bt1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ed1 = findViewById(R.id.e1);
+        bt1 = findViewById(R.id.b1);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Message = ed1.getText().toString();
+
+                Intent i = new Intent(getApplicationContext(),New.class);
+                i.putExtra("uname", Message);
+                startActivity(i);
+            }
+        });
+    }
+}
+
+
+
+**new Acitivity**
+
+package com.example.hellomsg;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class New extends Activity {
+    TextView tv1;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        tv1 = findViewById(R.id.t1);
+        String ans = getIntent().getStringExtra("uname");
+        tv1.setText("" + ans);
+    }
+}
+
+
+
+
+******   Life cycle    ***** 
+
+
+package com.example.lifecycle;
+
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    String tag="Activity Life Cycle";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.d(tag,"onCreate() method called");
+    }
+
+    protected void onStart(){
+        super.onStart();
+        Log.d(tag,"onStart() method called");
+    }
+
+    protected void onResume(){
+        super.onResume();
+        Log.d(tag,"onResume() method called");
+    }
+
+    protected void onPause(){
+        super.onPause();
+        Log.d(tag,"onPause() method called");
+    }
+
+    protected void onStop(){
+        super.onStop();
+        Log.d(tag,"onStop() method called");
+    }
+
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d(tag,"onDestroy() method called");
+    }
+}
+
+
+
+
+******   Odd or Even    ***** 
+
+package com.example.oddoreven;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button bt1;
+    EditText ed1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ed1=findViewById(R.id.ed1);
+        bt1=findViewById(R.id.bt1);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int ans= Integer.parseInt(ed1.getText().toString());
+               if(ans % 2 ==0){
+                   Toast.makeText(MainActivity.this,ans+" is a Even Number",Toast.LENGTH_SHORT).show();
+               }else {
+                   Toast.makeText(MainActivity.this,ans+" is a Odd Number",Toast.LENGTH_SHORT).show();
+               }
+            }
+        });
+    }
+}
+
+
+
+******   Phone call    *****
+
+package com.example.phonecall;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+   Button bt1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bt1=findViewById(R.id.b1);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+651234567"));
+                startActivity(i);
+            }
+        });
+
+    }
+}
+
+
+
+******   Power and Average    *****
+
+package com.example.powerandaverage;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+    private EditText num1EditText;
+    private EditText num2EditText;
+    private Button powerButton;
+    private Button averageButton;
+    private TextView powerTextView;
+    private TextView averageTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        num1EditText = findViewById(R.id.num1EditText);
+        num2EditText = findViewById(R.id.num2EditText);
+        powerButton = findViewById(R.id.powerButton);
+        averageButton = findViewById(R.id.averageButton);
+        powerTextView = findViewById(R.id.powerTextView);
+        averageTextView = findViewById(R.id.averageTextView);
+
+        powerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double num1 = Double.parseDouble(num1EditText.getText().toString());
+                double num2 = Double.parseDouble(num2EditText.getText().toString());
+                double result = Math.pow(num1, num2);
+                powerTextView.setText("Power Result: " + result);
+            }
+        });
+
+        averageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double num1 = Double.parseDouble(num1EditText.getText().toString());
+                double num2 = Double.parseDouble(num2EditText.getText().toString());
+                double result = (num1 + num2) / 2.0;
+                averageTextView.setText("Average Result: " + result);
+            }
+        });
+    }
+}
+
+
+
+******   CheckBox    *****
+
+package com.example.radioandcheckbox;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+CheckBox checkBox;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+         checkBox=findViewById(R.id.ch1);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    Toast.makeText(getApplicationContext(), "checkbox is checked", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "checkbox is unchecked", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
+    }
+}
+
+
+
+
+******   Toggle Switch Button   *****
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/teal_200">
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/t1"/>
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/s1"
+        android:layout_below="@id/t1"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
+
+
+
+******   Radio Group    ***** 
+
+
+public class MainActivity extends AppCompatActivity {
+
+    RadioGroup rg;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        rg = findViewById(R.id.rg);
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton radioButton = findViewById(i);
+                Toast.makeText(MainActivity.this, "Selected Radio Button is : " + radioButton.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+}
+
+******   Scroll View    *****
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:text="Button 1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:text="Button 2"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:text="Button 3"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:text="Button 4"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5"
+        android:text="Button 5"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:text="Button 6"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        android:text="Button 7"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        android:text="Button 8"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:text="Button 9"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button10"
+        android:text="Button 10"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button11"
+        android:text="Button 11"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button12"
+        android:text="Button 12"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button13"
+        android:text="Button 13"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button14"
+        android:text="Button 14"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button15"
+        android:text="Button 15"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button16"
+        android:text="Button 16"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button17"
+        android:text="Button 17"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button18"
+        android:text="Button 18"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button19"
+        android:text="Button 19"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button20"
+        android:text="Button 20"/>
+
+
+</LinearLayout>
+</ScrollView>
+

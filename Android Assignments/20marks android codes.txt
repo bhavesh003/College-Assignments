@@ -1,0 +1,878 @@
+***** Landscape portrait *****
+
+package com.example.landscape;
+
+import static java.lang.Math.pow;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button b1 = findViewById(R.id.b1);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double inputrate = 0.0;
+
+                double convertedRate = 0.0;
+                EditText inputText = (EditText) findViewById(R.id.e1);
+                TextView convertedText = (TextView) findViewById(R.id.t4);
+                inputrate = Double.parseDouble(inputText.getText().toString()) / 100.0;
+                RadioButton rb2 = findViewById(R.id.rb2);
+                if (rb2.isChecked()) {
+                    convertedRate = (pow((1.0 + inputrate), (1.0 / 12.0)) - 1.0) * 100;
+
+                } else {
+                    convertedRate = (pow((1.0 + inputrate), 12) - 1.0) * 100;
+                }
+                convertedText.setText(String.format("Converted Rate is %1$.4f%%", convertedRate));
+
+
+            }
+        });
+    }
+
+}
+
+
+
+
+**  Teacher Explicit Intent **
+
+ * MainActivity *
+
+package com.example.teacherslip2;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+
+public class MainActivity extends AppCompatActivity {
+    public EditText e1,e2,e3,e4,e5,e6;
+    public Button b1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        e1 = findViewById(R.id.ed1);
+        e2 = findViewById(R.id.ed2);
+        e3 = findViewById(R.id.ed3);
+        e4 = findViewById(R.id.ed4);
+        e5 = findViewById(R.id.ed5);
+        e6 = findViewById(R.id.ed6);
+        b1 = findViewById(R.id.b1);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Fname = e1.getText().toString();
+                String Sname = e2.getText().toString();
+                String Lname = e3.getText().toString();
+                String dob = e4.getText().toString();
+                String addr = e5.getText().toString();
+                String spea = e6.getText().toString();
+                Intent i = new Intent(MainActivity.this,DisplayActivity.class);
+                i.putExtra("fname",Fname);
+                i.putExtra("sname",Sname);
+                i.putExtra("lname",Lname);
+                i.putExtra("DOB",dob);
+                i.putExtra("Addr",addr);
+                i.putExtra("Email",spea);
+                startActivity(i);
+            }
+        });
+    }
+}
+
+*DisplayActivity*
+
+package com.example.teacherslip2;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DisplayActivity extends AppCompatActivity {
+ public TextView tv1, tv2, tv3, tv4, tv5, tv6;
+
+ @SuppressLint({"SetTextI18n", "MissingInflatedId"})
+ protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity2);
+  tv1 = findViewById(R.id.t1);
+  tv2 = findViewById(R.id.t2);
+  tv3 = findViewById(R.id.t3);
+  tv4 = findViewById(R.id.t4);
+  tv5 = findViewById(R.id.t5);
+  tv6 = findViewById(R.id.t6);
+  Intent i = getIntent();
+  String fname = i.getStringExtra("fname");
+  String Mname = i.getStringExtra("sname");
+  String lname = i.getStringExtra("lname");
+  String DOB = i.getStringExtra("DOB");
+  String Addr = i.getStringExtra("Addr");
+  String spea = i.getStringExtra("Email");
+  tv1.setText("First Name: " + fname);
+  tv2.setText("Middle Name: " + Mname);
+  tv3.setText("Last Name: " + lname);
+  tv4.setText("Date Of Birth: " + DOB);
+  tv5.setText("Address Name: " + Addr);
+  tv6.setText("Specialisation: " + spea);
+ }
+}
+
+
+**  Slip 4 SpinnerView **
+
+
+package com.example.spinnerviewslip4;
+
+public class MainActivity extends AppCompatActivity {
+    String[] Fruits = {"Apple", "mango"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Spinner sp = findViewById(R.id.sp);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Fruits);
+        sp.setAdapter(adapter);
+    }
+}
+
+***
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="107dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="259dp"
+        android:textSize="25dp"
+        android:layout_marginBottom="675dp"
+        android:text="Enter Item:" />
+    <EditText
+        android:id="@+id/ed1"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="670dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="583dp"
+        android:text="Add to Spinner"
+        android:textSize="12dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="581dp"
+        android:text="Remove from Spinner"
+        android:textSize="12dp"/>
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="186dp"
+        android:layout_height="31dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="515dp"
+        android:text="See Response Below:"
+        android:textSize="15dp" />
+    <Spinner
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="455dp"
+        android:id="@+id/sp" />
+</RelativeLayout>
+
+
+
+*****  File explorer  *****
+
+
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class MainActivity extends ListActivity {
+
+    String []file={"File 1","File 2","File 3","File 4","File 5"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ArrayAdapter a = new ArrayAdapter(this, android.R.layout.simple_list_item_1,file);
+        setListAdapter(a);
+
+    }
+    public void onListItemClick(ListView parent, View v, int pos, long id) {
+        Toast.makeText(this, "You've selected " + file[pos], Toast.LENGTH_SHORT).show();
+    }
+}
+
+
+
+*****  List View slip 6 *****
+
+MainActivity.java
+
+package com.example.arrayadapterfruit;
+
+import android.app.ListActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class MainActivity extends ListActivity {
+
+    String []fruit={"Apple","Mango","Banana","Orange","Strawbery","Chikko","Custard Apple"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ArrayAdapter a = new ArrayAdapter(this, android.R.layout.simple_list_item_1,fruit);
+        setListAdapter(a);
+
+    }
+    public void onListItemClick(ListView parent, View v, int pos, long id)
+    {
+        Toast.makeText(this, "You've selected "+fruit[pos], Toast.LENGTH_SHORT).show();
+    }
+}
+
+
+
+
+**  Phone call  **
+
+
+package com.example.phonecall;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+   Button bt1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bt1=findViewById(R.id.b1);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+651234567"));
+                startActivity(i);
+            }
+        });
+
+    }
+}
+
+
+
+**  Factorial and sum of dig  **
+
+package com.example.powerandfactorial;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText ed1;
+    TextView tv1;
+
+    private static final int PICK_FROM_GALLERY = 101;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ed1 = findViewById(R.id.ed1);
+        tv1 = findViewById(R.id.tv1);
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(1,1,1,"Find_Factorial");
+        menu.add(1,2,2,"Sum_Of_Digits");
+        return super.onCreateOptionsMenu(menu);
+    }
+    public  boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getTitle().toString()) {
+            case "Find_Factorial":
+                int num = Integer.parseInt(ed1.getText().toString());
+
+                long fact = 1;
+
+                for (int i = num; i>0; i--)
+                {
+                    fact = fact * i;
+                }
+
+                String s = String.valueOf(fact);
+                tv1.setText("Factorial : " + s);
+                break;
+
+            case "Sum_Of_Digits":
+                int no = Integer.parseInt(ed1.getText().toString());
+
+                double sum = 0.0;
+                double digit = 0.0;
+
+                while(no != 0)
+                {
+                    digit = no % 10;
+                    sum = sum + digit;
+                    no = no / 10;
+                }
+
+                String f = String.valueOf(sum);
+                tv1.setText("Factorial : " + f);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+
+**  Fruits addapter  **
+
+
+package com.example.fruits;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ListView mListView;
+
+    private String[] mFruits = {
+            "Apple",
+            "Banana",
+            "Cherry",
+            "Grape",
+            "Kiwi",
+            "Lemon",
+            "Watermelon",
+            "Orange",
+            "Mango",
+            "Strawberry"
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mListView = findViewById(R.id.list_view);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_main, R.id.list_item_text_view, mFruits );
+
+        mListView.setAdapter(adapter);
+    }
+}
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/list_item_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="18sp" />
+</LinearLayout>
+
+
+
+
+**  Date and time picker **
+
+
+package com.example.pickerview;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
+
+public class MainActivity extends AppCompatActivity {
+    private EditText dateEditText;
+    private EditText timeEditText;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        dateEditText = findViewById(R.id.dateEditText);
+        timeEditText = findViewById(R.id.timeEditText);
+
+        dateEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePicker();
+            }
+        });
+
+        timeEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePicker();
+            }
+        });
+    }
+
+    private void showDatePicker() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        String date = day + "/" + (month + 1) + "/" + year;
+                        dateEditText.setText(date);
+                    }
+                },
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
+    }
+
+    private void showTimePicker() {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                this,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                        String time = hour + ":" + minute;
+                        timeEditText.setText(time);
+                    }
+                },
+                Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
+                Calendar.getInstance().get(Calendar.MINUTE),
+                false
+        );
+        timePickerDialog.show();
+    }
+}
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Choose a date"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/timeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Choose a time"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/dateEditText"/>
+
+
+</RelativeLayout>
+
+
+
+
+
+**  Contact application **
+
+*MainActivity*
+
+
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+    Button b1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        b1 = findViewById(R.id.b1);
+        b1.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),SecondActivity.class);
+                startActivity(i);
+            }
+        });
+
+    }
+}
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert Contact"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:backgroundTint="#00FF00"
+        android:layout_margin="15dp"
+        android:id="@+id/b1"
+        />
+
+</LinearLayout>
+
+
+*SecondActivity*
+
+package com.example.myapplication;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SecondActivity extends AppCompatActivity {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+    }
+}
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="240dp"
+        android:background="#8E9C81">
+
+        <ImageView
+            android:layout_width="165dp"
+            android:layout_height="150dp"
+            android:background="#484639"
+            android:src="@drawable/baseline_person_outline_24"
+            android:id="@+id/image"
+            />
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:text="Create Contact"
+            android:backgroundTint="#FF868686"/>
+
+        <Button
+            android:id="@+id/b2"
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b1"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:text="Update Existing"
+            android:backgroundTint="#FF868686"/>
+
+        <ImageButton
+            android:id="@+id/call"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/image"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:background="#FF868686"
+            android:src="@drawable/baseline_call_24"
+            android:contentDescription="Nothing to do"/>
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/image"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/call"
+            android:background="#8E9C81"
+            android:src="@drawable/blackline" />
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:background="#FF868686"
+            android:src="@drawable/baseline_video_call_24"
+            android:id="@+id/contact"
+            android:layout_below="@+id/image"
+            android:layout_toRightOf="@+id/line"
+            android:layout_marginTop="15dp"
+            android:contentDescription="Nothing to do" />
+
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:background="#484639"
+        android:layout_marginTop="3dp" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#484639"
+            android:padding="5dp"
+            android:text="Mobile : 9359593817"
+            android:textSize="20sp"
+            android:id="@+id/tv1"/>
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_toRightOf="@+id/tv1"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="46dp"
+            android:background="#FF868686"
+            android:src="@drawable/baseline_call_24"
+            android:id="@+id/call2" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/call2"
+            android:background="#484639"
+            android:src="@drawable/blackline"
+            android:id="@+id/line2"
+            />
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:background="#FF868686"
+            android:src="@drawable/baseline_message_24"
+            android:layout_toRightOf="@+id/line2"
+            android:layout_marginTop="5dp"
+
+            android:id="@+id/message2"
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+
+
+** Time picker slip 16  **
+
+package com.example.timepickerslip16;
+
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class MainActivity extends AppCompatActivity implements TimePicker.OnTimeChangedListener {
+
+    private TimePicker timePicker;
+    private TextView timeTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        timePicker = findViewById(R.id.timePicker);
+        timeTextView = findViewById(R.id.timeTextView);
+
+        timePicker.setOnTimeChangedListener(this);
+    }
+
+    @Override
+    public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+        timeTextView.setText("Selected time: " + hourOfDay + ":" + minute);
+    }
+}
+
+
+
+** Bank Spinner **
+
+
+package com.example.bankspinner;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    private Spinner bankSpinner;
+    private String[] bankNames = {"BOI", "SBI", "HDFC", "PNB", "OBC"};
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        bankSpinner = findViewById(R.id.bankSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, bankNames);
+        bankSpinner.setAdapter(adapter);
+
+        bankSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedBank = bankNames[position];
+                Toast.makeText(getApplicationContext(), selectedBank, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+}
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/bankSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

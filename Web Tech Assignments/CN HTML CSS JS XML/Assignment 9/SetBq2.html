@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Set B Q2</title>
+    <script>
+        var monthNames = ["Jan", "Feb", "March", "Apr", "May", "June",
+            "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+        function myFunction() {
+            var today = new Date();
+            var date = prompt("Please Enter Date :", today.getDate() + "-" + monthNames[today.getMonth()]);
+
+            if (date == "1-Jan") {
+                x = "Happy New Year";
+                document.getElementById("demo").innerHTML = x;
+            } else if (date == "14-Jan") {
+                x = "Happy Makar Sankranti";
+                document.getElementById("demo").innerHTML = x;
+            } else if (date == "25-Dec") {
+                x = "Merry Christmas";
+                document.getElementById("demo").innerHTML = x;
+            } else {
+                x = "Have A Good Day";
+                document.getElementById("demo").innerHTML = x;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="myFunction()">Enter Date</button>
+    <p id="demo"></p>
+</body>
+
+</html>

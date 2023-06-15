@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Set B Q2</title>
+    <script>
+        function even() {
+            for (var a = 50; a <= 100; a++) {
+                if (a % 2 == 0) {
+                    document.write(a + "<br>");
+                }
+            }
+        }
+        function odd() {
+            for (var a = 50; a <= 100; a++) {
+                if (a % 2 != 0) {
+                    document.write(a + "<br>");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body style="text-align: center; font-size: 20px;">
+    <h2>Odd & Even Number between 50 to 100</h2>
+    ​<input type="button" onclick="odd()" value="Display Odd Numbers">
+    <br><br>
+    ​<input type="button" onclick="even()" value="Display Even Numbers">
+</body>
+
+</html>

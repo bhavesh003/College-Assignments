@@ -1,0 +1,10 @@
+> nums = c(10, 20, 30, 40, 50, 60)
+> print('Original vector:')
+[1] "Original vector:"
+> print(nums)   
+[1] 10 20 30 40 50 60
+> print(paste("Maximum value of the said vector:",max(nums)))
+[1] "Maximum value of the said vector: 60"
+> print(paste("Minimum value of the said vector:",min(nums)))
+[1] "Minimum value of the said vector: 10"
+> 

@@ -1,0 +1,2 @@
+Appending some text to example.txtAppending some text to example.txtAppending some text to example.txt
+Hii

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SetA Q2</title>
+    <script>
+        function perfectNumber() {
+            var flag, number, remainder, addition = 0, i;
+            number = Number(document.getElementById("N").value);
+            flag = number;
+            for (i = 0; i < number; i++) {
+                remainder = number % i;
+                if (remainder == 0) {
+                    addition += i;
+                }
+            }
+            if (addition == flag) {
+                window.alert("-The inputed number is Perfect");
+            }
+            else {
+                window.alert("The inputed number is not Perfect");
+            }
+        }
+    </script>
+</head>
+
+<body style="text-align: center; font-size: 20px;">
+    <br>
+    <h1>Perfect Number or Not?</h1>
+    Enter The Number : <input type="text" name="n" id="N" />
+    <br><br>
+    <button onClick="perfectNumber()">CHECK</button>
+</body>
+
+</html>

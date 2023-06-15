@@ -1,0 +1,24 @@
+#create list using vector
+> list_data <- list("Ram Sharma","Sham Varma","Raj Jadhav", "Ved Sharma")
+#display list
+> print(list_data)
+[[1]][1] "Ram Sharma"
+[[2]][1] "Sham Varma"
+[[3]][1] "Raj Jadhav"
+[[4]][1] "Ved Sharma"
+#create new employee
+> new_Emp <-"Kavya Anjali"
+#Add new employee at the end
+> list_data <-append(list_data,new_Emp)
+> print(list_data)
+[[1]][1] "Ram Sharma"
+[[2]][1] "Sham Varma"
+[[3]][1] "Raj Jadhav"
+[[4]][1] "Ved Sharma"
+[[5]][1] "Kavya Anjali"
+#remove 3 employee
+> list_data[3] <- NULLprint(list_data)
+[[1]][1] "Ram Sharma"
+[[2]][1] "Sham Varma"
+[[3]][1] "Ved Sharma"
+[[4]][1] "Kavya Anjali"

@@ -1,0 +1,22 @@
+> vector1 = seq(10,40 , length.out=4)
+> vector2 = c(20, 10, 40, 40)
+> print("Original Vectors:")
+   [1] "Original Vectors:"
+> print(vector1)
+   [1] 10 20 30 40
+> print(vector2)
+   [1] 20 10 40 40
+> add= vector1+vector2
+> cat("Sum of vector is ",add, "\n")
+   Sum of vector is 30 30 70 80
+> sub_vector= vector1-vector2
+> cat("Substraction of vector is ",sub_vector, "\n")
+   Substraction of vector is -10 10 -10 0
+> mul_vector= vector1 * vector2
+> cat("Multiplication of vector is ",mul_vector, "\n")
+   Multiplication of vector is 200 200 1200 1600
+> print("Division of two Vectors:") 
+   [1] "Division of two Vectors:"
+> div_vector = vector1 / vector2
+> print(div_vector)
+   [1] 0.50 2.00 0.75 1.00

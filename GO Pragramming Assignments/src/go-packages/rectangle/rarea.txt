@@ -1,0 +1,5 @@
+package rectangle
+
+func Area(l,h float32) float32{
+	return l*h
+}

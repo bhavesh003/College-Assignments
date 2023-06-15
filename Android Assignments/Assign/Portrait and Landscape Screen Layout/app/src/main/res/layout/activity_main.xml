@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Portrait View"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:id="@+id/t1"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Convert Interest Rates"
+        android:textSize="15dp"
+        android:id="@+id/t2"
+        android:layout_below="@id/t1"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate Convert to %"
+        android:textSize="15dp"
+        android:layout_below="@id/t2"
+        android:id="@+id/t3"
+        android:layout_alignLeft="@id/t3"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:id="@+id/e1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t2"
+        android:layout_alignRight="@id/t3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginRight="-126dp"
+        android:inputType="numberDecimal" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg1"
+        android:layout_below="@id/t2"
+        android:layout_marginTop="60dp">
+        s
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yearly to Monthly"
+            android:id="@+id/rb1" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly to Yearly"
+            android:id="@+id/rb2" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/b1"
+        android:text="Convert"
+        android:layout_below="@+id/rg1"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Converted Rate is "
+        android:layout_below="@id/b1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/t4" />
+
+
+
+</RelativeLayout>

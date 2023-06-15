@@ -1,0 +1,11 @@
+> companies <- data.frame(Shares = c("TCS", "Reliance", "HDFC Bank", "Infosys","Reliance"),Price = c(3200, 1900, 1500, 2200, 1900))
+> companies
+     Shares Price
+1       TCS  3200
+2  Reliance  1900
+3 HDFC Bank  1500
+4   Infosys  2200
+5  Reliance  1900
+> companies[duplicated(companies),]
+    Shares Price
+5 Reliance  1900

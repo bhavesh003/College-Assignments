@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prime numbers between 1 to 89</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        document.write("Prime Numbers Between 1 to 89 : <br> <br>")
+        var a, b;
+        for (a = 2; a <= 89; a++) {
+            var c = true;
+            for (b = 2; b < a; b++) {
+                if (a % b == 0) {
+                    c = false;
+                    break;
+                }
+            }
+            if (c) {
+                document.write(+a + ', ');
+            }
+        }
+    </script>
+</body>
+
+</html>

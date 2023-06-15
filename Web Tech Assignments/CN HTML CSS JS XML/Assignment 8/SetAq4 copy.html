@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function no_into_words() {
+            var num;
+            var reverse = 0;
+            num = Number(document.getElementById("no_input").value);
+            document.write("Number into words : ")
+            while (num != 0) {
+                reverse = (reverse * 10) + (num % 10);
+                num = parseInt(num / 10);
+            }
+            while (reverse != 0) {
+                switch (reverse % 10) {
+                    case 0:
+                        document.write("Zero ");
+                        break;
+                    case 1:
+                        document.write("One ");
+                        break;
+                    case 2:
+                        document.write("Two ");
+                        break;
+                    case 3:
+                        document.write("Three ");
+                        break;
+                    case 4:
+                        document.write("Four ");
+                        break;
+                    case 5:
+                        document.write("Five ");
+                        break;
+                    case 6:
+                        document.write("Six ");
+                        break;
+                    case 7:
+                        document.write("Seven ");
+                        break;
+                    case 8:
+                        document.write("Eight");
+                        break;
+                    case 9:
+                        document.write("Nine");
+                        break;
+                }
+                reverse = parseInt(reverse / 10);
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    Enter any Number: <input id="no_input">
+    <button onclick="no_into_words()">Check</button></br></br>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Set B Q4</title>
+</head>
+
+<body>
+    <script>
+        const keywords = "matched"
+        let input = ''
+        let count = 1
+
+        function formSubmit() {
+            while (input !== keywords && count < 4) {
+                input = prompt(`Input your guess? ${count}`);
+                if (input === keywords) {
+                    alert(`Matched`)
+                    exit()
+                } else {
+                    count !== 3 ? alert(`Try again`) : alert(`All chances Over`)
+                    count++;
+                }
+            }
+        }
+        formSubmit()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+
+<body align="middle">
+    <div style="border: black;">
+        <h1>Feedback Form</h1><br><br>
+        <form action="/feedback.php">
+            Student Name: <input type="text" placeholder="Enter Your Name"><br><br>
+            Student E-mail: <input type="text" placeholder="Enter Your E-mail"><br><br>
+            How you do know about this Institute : <select name="dropdown">
+                <option value="college">Through College Management</option>
+                <option value="online">Through College Web-Site</option>
+            </select><br><br>
+            How do youo rate the Faculty : <input type="radio" id="poor" name="rating" value="1">
+            <label for="rating">Poor</label>
+            <input type="radio" id="good" name="rating" value="2"> <label for="rating">Good</label>
+            <input type="radio" id="Vgood" name="rating" value="3"> <label for="rating">Very Good</label>
+            <input type="radio" id="excellent" name="rating" value="4"> <label for="rating">Excellent</label>
+            <p><b>Suggestion for the betterment of Faculty and Institute</b></p>
+            <label for="comment"></label>
+            <textarea class="form-control" rows="5" id="comment"></textarea><br>
+            <input type="button" onclick="Hello();" name="Send" value="Send">
+            <input type="button" onclick="Hello();" name="Clear" value="Clear">
+        </form>
+    </div>
+</body>
+
+</html>

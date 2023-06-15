@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <form>
+    <html>
+
+    <body>
+      <form>
+        <fieldset>
+          <h2>Pay Now</h2>
+          <input type="radio" name="n" value="credit">Credit or Debit Card</input>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png"
+            width="30px">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+            width="30px">
+          <img
+            src="https://fashionsista.co/downloadpng/png/20201002/american-express-amex-billing-credit-card-payment.jpg"
+            width="20px"> <br> <br>
+          <input type="radio" name="n" value="netbanking">Pay with Net Banking</input><br><br>
+          <input type="radio" name="n" value="paypal">Paypal</input>
+          <img src="https://logos-download.com/wp-content/uploads/2016/03/PayPal_Logo_2007.png" width="50px"> <br><br>
+          <input type="radio" name="n" value="local">Pay By Mobile Using Local Methods</input><br>
+          <br />
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <style>
+            body {
+              font-family: Arial;
+              font-size: 17px;
+              padding: 0px;
+            }
+
+            * {
+              box-sizing: border-box;
+            }
+
+            .row {
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+              margin: 0px;
+            }
+
+            .col-25 {
+              -ms-flex: 25%;
+              flex: 25%;
+            }
+
+            .col-50 {
+              -ms-flex: 50%;
+              flex: 50%;
+            }
+
+            .col-75 {
+              -ms-flex: 75%;
+              flex: 75%;
+            }
+
+            .col-25,
+            .col-50,
+            .col-75 {
+              padding: 0 16px;
+            }
+
+            .container {
+              background-color: #f2f2f2;
+              padding: 5px 20px 15px 20px;
+              border: 1px solid lightgrey;
+              border-radius: 3px;
+              align-items: left;
+            }
+
+            input[type=text] {
+              width: 100%;
+              margin-bottom: 20px;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+            }
+
+            label {
+              margin-bottom: 10px;
+              display: block;
+            }
+
+            .icon-container {
+              margin-bottom: 20px;
+              padding: 7px 0;
+              font-size: 24px;
+              align-content: left;
+              /* font-color: black; */
+            }
+
+            .btn {
+              background-color: light-grey;
+              color: rgb(24, 22, 22);
+              padding: 12px;
+              margin: 10px 0;
+              border: none;
+              width: 100%;
+              border-radius: 3px;
+              cursor: pointer;
+              font-size: 17px;
+            }
+
+            .btn:hover {
+              background-color: rgb(255, 255, 255);
+            }
+
+            a {
+              color: #2196F3;
+            }
+
+            hr {
+              border: 1px solid lightgrey;
+            }
+
+            span.price {
+              float: right;
+              color: grey;
+            }
+
+            @media (max-width: 800px) {
+              .row {
+                flex-direction: column-reverse;
+              }
+
+              .col-25 {
+                margin-bottom: 20px;
+              }
+            }
+          </style>
+          </head>
+
+          <body>
+            <div class="row">
+              <div class="col-75">
+                <div class="container">
+
+                  <div class="col-50">
+
+
+                    <input type="text" id="cname" name="cardname" placeholder="Name on Card">
+
+                    <input type="text" id="ccnum" name="cardnumber" placeholder="Credit card number">
+
+                    <input type="text" id="expmonth" name="expmonth" placeholder="MM">
+
+                    <input type="text" id="expyear" name="expyear" placeholder="YYYY">
+                    <input type="text" placeholder="Security Code">
+
+                  </div>
+                  <label>
+                    <input type="checkbox" checked="checked" name="sameadr"> By copmeleting your purchase you agree to
+                    these <b style="color:royalblue;">Terms of Services.</b>
+                  </label>
+                  <input type="submit" value="Complete Payment" class="btn">
+      </form>
+      </div>
+      </div>
+      </div>
+    </body>
+
+    </html>

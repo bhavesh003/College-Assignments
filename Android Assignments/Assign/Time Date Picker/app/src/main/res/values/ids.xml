@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="chosenDateTextView" type="id" />
+    <item name="chosenTimeTextView" type="id" />
+</resources>

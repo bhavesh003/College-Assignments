@@ -1,0 +1,16 @@
+> Employees = data.frame(Name=c("Anastasia S","Dima R","Katherine S", "JAMES A","LAURA MARTIN"),
++                       Gender=c("M","M","F","F","M"),
++                       Age=c(23,22,25,26,32),
++                       Designation=c("Clerk","Manager","Exective","CEO","ASSISTANT"),
++                       SSN=c("123-34-2346","123-44-779","556-24-433","123-98-987","679-77-576")
++                       )
+> print("Details of the employees:")                      
+[1] "Details of the employees:"
+> print(Employees)
+          Name Gender Age Designation         SSN
+1  Anastasia S      M  23       Clerk 123-34-2346
+2       Dima R      M  22     Manager  123-44-779
+3  Katherine S      F  25    Exective  556-24-433
+4      JAMES A      F  26         CEO  123-98-987
+5 LAURA MARTIN      M  32   ASSISTANT  679-77-576
+> 

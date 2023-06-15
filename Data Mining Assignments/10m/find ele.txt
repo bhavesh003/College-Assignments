@@ -1,0 +1,46 @@
+> l1 = list("x", "y", "z")
+> l2 = list("X", "Y", "Z", "x", "y", "z")
+> print("Original lists:")
+[1] "Original lists:"
+> print(l1)
+[[1]]
+[1] "x"
+
+[[2]]
+[1] "y"
+
+[[3]]
+[1] "z"
+
+> print(l2)
+[[1]]
+[1] "X"
+
+[[2]]
+[1] "Y"
+
+[[3]]
+[1] "Z"
+
+[[4]]
+[1] "x"
+
+[[5]]
+[1] "y"
+
+[[6]]
+[1] "z"
+
+> print("All elements of l2 that are not in l1:")
+[1] "All elements of l2 that are not in l1:"
+> setdiff(l2, l1)
+[[1]]
+[1] "X"
+
+[[2]]
+[1] "Y"
+
+[[3]]
+[1] "Z"
+
+> 

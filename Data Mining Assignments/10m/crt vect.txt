@@ -1,0 +1,12 @@
+> name = c('Pant', 'Rohit', 'Virat', 'SKY')
+> runs = c(34,67,43,76)
+> balls = c(21,43,29,31)
+> sixes = c(2,3,0,5)
+> df = data.frame(name,runs,balls,sixes)  
+> print(df)
+   name runs balls sixes
+1  Pant   34    21     2
+2 Rohit   67    43     3
+3 Virat   43    29     0
+4   SKY   76    31     5
+> 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Set A Q3</title>
+</head>
+
+<body>
+    <h3>Display an Array</h3>
+    <p id="q"></p><br>
+    <h3>Sort elements of an Array</h3>
+    <p id="q2"></p><br>
+    <h3>Reverse elements of an Array</h3>
+    <p id="q3"></p><br>
+    <h3>Search a given element from an Array</h3>
+    <p id="q4"></p><br>
+
+    <script>
+        const num = [];
+        num[0] = " 300 ";
+        num[1] = " 400 ";
+        num[2] = " 100 ";
+        num[3] = " 200 ";
+        num[4] = " 500 ";
+        document.getElementById("q").innerHTML = num;
+        num.sort();
+        document.getElementById("q2").innerHTML = num;
+        num.sort();
+        num.reverse();
+        document.getElementById("q3").innerHTML = num;
+        function checkvalue(num) {
+            return num < 500;
+        }
+        document.getElementById("q4").innerHTML = num.find(checkvalue);
+    </script>
+</body>
+
+</html>

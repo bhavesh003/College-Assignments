@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Set B Q1</title>
+    <script>
+        function prime() {
+            for (var limit = 1; limit <= 89; limit++) {
+                var a = false;
+                for (var i = 2; i <= limit; i++) {
+                    if (limit % i === 0 & amp;& amp; i !== limit) {
+                        a = true;
+                    }
+                }
+                if (a === false) {
+                    document.write("<br>" + limit);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body style="text-align: center; font-size: 20px;">
+    <h1>Prime Numbes between 1 to 89</h1>
+    <input type="button" onclick="prime()" value="Display Prime Numbers">
+</body>
+
+</html>

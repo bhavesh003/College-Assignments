@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+
+        }
+
+        .column {
+            border: 2px solid black;
+            float: left;
+            padding: 2px;
+            height: 150px;
+            background-color: cornsilk;
+        }
+
+        .left {
+            width: 50%;
+        }
+
+        .right {
+            width: 50%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        body {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="column left" style="background-color:white;">
+            <p align="middle">Fortuner<br>
+                <hr>
+            </p>
+            <p align="middle">Scorpio
+                <hr>
+            </p>
+            <p align="middle">Mustang<br></p>
+        </div>
+        <div class="column right" style="background-color:white;">
+            <p align="middle"><a
+                    href="https://imgd.aeplcdn.com/1200x900/n/cw/ec/19812/fortuner-exterior-right-front-three-quarter.jpeg?q=85">Fortuner</a><br>
+                <hr>
+            </p>
+            <p align="middle"><a
+                    href="https://cdn.autoportal.com/img/new-cars-gallery/mahindra/scorpio-2020/photo34/mahindra-scorpio-2020-431fbb65.jpg">Scorpio</a><br>
+                <hr>
+            </p>
+            <p align="middle"><a
+                    href="https://cdni.autocarindia.com/ExtraImages/20200707011041_Mustang-1.jpg">Mustang</a><br></p>
+        </div>
+    </div>
+</body>
+
+</html>
